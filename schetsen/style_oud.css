@@ -1,0 +1,773 @@
+/* =========================================================
+   Cloudberry — landing page
+   Kleuren = 6-kleurenpalet uit Figma (pagina "huisstijl")
+   ========================================================= */
+
+:root {
+  --forest: #2F6A4C;
+  --berry:  #C94150;
+  --orange: #F3A044;
+  --lime:   #C5E94B;
+  --sky:    #B9D9F4;
+  --cream:  #F7E9D0;
+
+  /* afgeleide tinten voor leesbare tekst (geen nieuwe merkkleuren) */
+  --ink:    #1E4432;   /* donkere bosgroen voor kleine tekst */
+  --paper:  #FFFAF1;   /* lichtste crème als pagina-achtergrond */
+
+  --font-display: "Bodoni Moda", Georgia, serif;
+  --font-body: "Nunito", system-ui, sans-serif;
+
+  --radius-l: 40px;
+  --radius-m: 24px;
+  --wrap: 1240px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; overflow-x: clip; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+img { max-width: 100%; display: block; }
+
+h1, h2, h3 { margin: 0; line-height: 1.05; }
+h2 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  letter-spacing: -0.01em;
+}
+h2 em { font-weight: 400; color: var(--berry); }
+h3 { font-size: 1.3rem; font-weight: 900; }
+p { margin: 0; }
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+section { margin-top: 120px; }
+
+/* ---------- wordmark (Bodoni Moda, letter per kleur) ---------- */
+.wordmark {
+  font-family: var(--font-display);
+  font-style: italic;
+  text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+.wm-cloud { font-weight: 800; }
+.wm-berry { font-weight: 400; }
+.wordmark--nav { font-size: 2.1rem; }
+.wordmark--footer { font-size: 3.4rem; }
+
+.c-forest { color: var(--forest); }
+.c-berry  { color: var(--berry); }
+.c-orange { color: var(--orange); }
+.c-lime   { color: var(--lime); }
+.c-sky    { color: var(--sky); }
+.c-cream  { color: var(--cream); }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font: 800 1rem/1 var(--font-body);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .2s ease, background-color .2s ease, color .2s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+.btn--small { min-height: 44px; padding: 0 20px; }
+.btn--forest { background: var(--forest); color: var(--cream); }
+.btn--cream  { background: var(--cream); color: var(--ink); }
+.btn--ghost  { border-color: var(--cream); color: var(--cream); }
+.btn--ghost:hover { background: var(--cream); color: var(--ink); }
+.btn--lime   { background: var(--lime); color: var(--ink); }
+
+/* ---------- labels ---------- */
+.pill {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--lime);
+  color: var(--ink);
+  font-weight: 800;
+  font-size: .85rem;
+  letter-spacing: .02em;
+}
+.eyebrow {
+  font-weight: 900;
+  font-size: .85rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--forest);
+  margin-bottom: 14px;
+}
+
+/* =========================================================
+   NAV
+   ========================================================= */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 250, 241, .92);
+  backdrop-filter: blur(8px);
+}
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 84px;
+}
+.nav__menu { display: flex; align-items: center; gap: 32px; }
+.nav__menu a:not(.btn) {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+  position: relative;
+}
+.nav__menu a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -4px;
+  height: 2px;
+  background: var(--berry);
+  transform: scaleX(0);
+  transition: transform .2s ease;
+}
+.nav__menu a:not(.btn):hover::after { transform: scaleX(1); }
+
+.nav__toggle {
+  display: none;
+  width: 48px; height: 48px;
+  border: 0; border-radius: 50%;
+  background: var(--forest);
+  cursor: pointer;
+  position: relative;
+}
+.nav__toggle span {
+  position: absolute;
+  left: 14px; right: 14px;
+  height: 2px;
+  background: var(--cream);
+  transition: transform .25s ease;
+}
+.nav__toggle span:first-child { top: 19px; }
+.nav__toggle span:last-child  { top: 27px; }
+.nav__toggle[aria-expanded="true"] span:first-child { transform: translateY(4px) rotate(45deg); }
+.nav__toggle[aria-expanded="true"] span:last-child  { transform: translateY(-4px) rotate(-45deg); }
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero { margin-top: 12px; }
+.hero__card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  min-height: 620px;
+  padding: 72px 64px;
+  border-radius: var(--radius-l);
+  background: var(--forest);
+  color: var(--cream);
+  overflow: hidden;
+  transition: background-color .5s ease;
+}
+/* thema's — script.js zet data-theme wanneer je een smaak kiest */
+.hero__card[data-theme="berry"]  { background: var(--berry); }
+.hero__card[data-theme="orange"] { background: #B9662A; } /* donkerder oranje: crème tekst blijft leesbaar */
+.hero__card[data-theme="lime"],
+.hero__card[data-theme="sky"]    { background: var(--forest); }
+
+.hero__text { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
+.hero__title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(2.8rem, 6vw, 5.4rem);
+  letter-spacing: -0.015em;
+}
+.hero__title em { font-weight: 400; color: var(--lime); }
+.hero__lead { max-width: 34ch; font-size: 1.15rem; }
+.hero__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+
+.hero__visual {
+  position: relative;
+  height: 480px;
+}
+
+/* losse "bessen" — platte cirkels in paletkleuren */
+.dot { position: absolute; border-radius: 50%; }
+.dot--lime   { background: var(--lime); }
+.dot--orange { background: var(--orange); }
+.dot--sky    { background: var(--sky); }
+.dot--berry  { background: var(--berry); }
+.dot--a { width: 300px; height: 300px; right: 0; top: 40px; opacity: .9; }
+.dot--b { width: 70px; height: 70px; left: 8%; top: 20px; }
+.dot--c { width: 44px; height: 44px; right: 6%; bottom: 30px; }
+.dot--d { width: 28px; height: 28px; left: 2%; bottom: 120px; }
+
+/* ---------- verpakking (CSS mockup van jouw schets) ---------- */
+.pack {
+  position: absolute;
+  width: 250px;
+  height: 330px;
+  border-radius: 14px 14px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,.35);
+  transition: background-color .4s ease, transform .4s ease;
+}
+.pack--back  { left: 6%;  top: 70px; transform: rotate(-9deg); }
+.pack--front { left: 38%; top: 110px; transform: rotate(6deg); }
+.hero__visual:hover .pack--front { transform: rotate(3deg) translateY(-8px); }
+
+.pack__top {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px;
+  text-align: center;
+}
+.pack__teapot { width: 84px; }
+.pack__brand {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 800;
+  font-size: 1.9rem;
+  color: var(--cream);
+  line-height: 1;
+}
+.pack__slogan { font-size: .62rem; font-weight: 800; font-style: italic; color: var(--cream); }
+.pack__band {
+  padding: 18px 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--cream);
+}
+.pack__name { font-weight: 900; font-style: italic; font-size: 1.35rem; line-height: 1.05; }
+.pack__info { font-size: .72rem; font-weight: 800; color: var(--ink); }
+
+.pack--berry  { background: var(--berry); }
+.pack--berry  .pack__name { color: var(--berry); }
+.pack--orange { background: var(--orange); }
+.pack--orange .pack__name { color: #A83440; }
+.pack--lime   { background: var(--forest); }
+.pack--lime   .pack__band { background: var(--lime); }
+.pack--lime   .pack__name { color: var(--ink); }
+.pack--sky    { background: var(--sky); }
+.pack--sky    .pack__brand, .pack--sky .pack__slogan { color: var(--forest); }
+.pack--sky    .pack__name { color: var(--forest); }
+
+/* =========================================================
+   MARQUEE
+   ========================================================= */
+.marquee {
+  margin-top: 90px;
+  background: var(--berry);
+  transform: rotate(-2deg);
+  overflow: hidden;
+  padding: 18px 0;
+}
+.marquee__track {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+.marquee span {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 2rem;
+  color: var(--cream);
+  white-space: nowrap;
+}
+.marquee img { width: 54px; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* =========================================================
+   SECTION HEAD
+   ========================================================= */
+.section-head {
+  max-width: 640px;
+  margin: 0 auto 56px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.section-head p:not(.eyebrow) { font-size: 1.1rem; }
+.section-head--left { margin-left: 0; text-align: left; align-items: flex-start; }
+
+
+/* =========================================================
+   SLOGAN — "A cup for you, a cup for the little ones."
+   ========================================================= */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.slogan {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  gap: 24px;
+}
+.slogan__half {
+  position: relative;
+  min-height: 600px;
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: var(--sky);
+}
+.slogan__photo { margin: 0; position: absolute; inset: 0; }
+.slogan__photo img { width: 100%; height: 100%; object-fit: cover; }
+.slogan__photo img.pos-top { object-position: center top; }
+.slogan__line {
+  position: relative;
+  margin: 24px;
+  padding: 22px 28px;
+  border-radius: var(--radius-m);
+  background: var(--cream);
+  align-self: flex-start;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  line-height: 1;
+  color: var(--ink);
+}
+.slogan__line em { font-weight: 400; color: var(--berry); }
+
+/* jouw getekende theepot bovenop een foto */
+.photo-teapot {
+  position: absolute;
+  z-index: 2;
+  width: clamp(90px, 12vw, 150px);
+  pointer-events: none;
+}
+.photo-teapot--tr { top: 24px; right: 24px; transform: rotate(8deg); }
+.photo-teapot--tl { top: 24px; left: 24px; transform: rotate(-8deg); }
+.photo-teapot--br { bottom: 64px; right: 20px; transform: rotate(6deg); }
+
+/* =========================================================
+   FLAVOURS — boogvormige kaarten (theepot/kopje-vorm)
+   ========================================================= */
+.flavour-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  align-items: end;
+}
+.flavour {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  border-radius: 200px 200px var(--radius-m) var(--radius-m);
+}
+.flavour:focus-visible { outline: 3px solid var(--orange); outline-offset: 6px; }
+.flavour__arch {
+  width: 100%;
+  height: 360px;
+  border-radius: 200px 200px var(--radius-m) var(--radius-m);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 32px;
+  transition: transform .3s ease;
+}
+.flavour:nth-child(even) .flavour__arch { height: 400px; }
+.flavour:hover .flavour__arch,
+.flavour.is-active .flavour__arch { transform: translateY(-10px); }
+.flavour.is-active .flavour__name::after {
+  content: "";
+  display: block;
+  width: 28px; height: 4px;
+  margin: 8px auto 0;
+  border-radius: 4px;
+  background: var(--berry);
+}
+.flavour__arch--berry  { background: #F2C9CD; }
+.flavour__arch--orange { background: #FAD9AE; }
+.flavour__arch--lime   { background: var(--lime); }
+.flavour__arch--sky    { background: var(--sky); }
+
+.flavour__name { font-weight: 900; font-size: 1.2rem; color: var(--ink); }
+.flavour__tag {
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--forest);
+}
+
+.mini-pack {
+  width: 150px;
+  height: 200px;
+  border-radius: 10px 10px 8px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -18px rgba(0,0,0,.4);
+}
+.mini-pack img { width: 64px; margin: 34px auto 0; }
+.mini-pack__band {
+  background: var(--cream);
+  padding: 12px 8px;
+  font-weight: 900;
+  font-style: italic;
+  font-size: .9rem;
+  line-height: 1.1;
+}
+.mini-pack--berry  { background: var(--berry); }
+.mini-pack--berry  .mini-pack__band { color: var(--berry); }
+.mini-pack--orange { background: var(--orange); }
+.mini-pack--orange .mini-pack__band { color: #A83440; }
+.mini-pack--forest { background: var(--forest); }
+.mini-pack--forest .mini-pack__band { background: var(--lime); color: var(--ink); }
+.mini-pack--sky    { background: var(--cream); }
+.mini-pack--sky    .mini-pack__band { background: var(--forest); color: var(--cream); }
+
+/* =========================================================
+   WHY — bento tegels
+   ========================================================= */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: minmax(220px, auto);
+  gap: 20px;
+}
+.tile {
+  position: relative;
+  padding: 32px;
+  border-radius: var(--radius-m);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  overflow: hidden;
+}
+.tile p { max-width: 32ch; }
+.tile--big  { grid-column: span 2; grid-row: span 2; }
+.tile--wide { grid-column: span 2; }
+.tile--forest { background: var(--forest); color: var(--cream); }
+.tile--lime   { background: var(--lime); }
+.tile--sky    { background: var(--sky); }
+.tile--orange { background: var(--orange); }
+.tile__big {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 900;
+  font-size: clamp(8rem, 18vw, 15rem);
+  line-height: .8;
+  color: var(--lime);
+}
+.tile--forest h3 { font-size: 2rem; }
+.tile__teapot {
+  position: absolute;
+  top: 32px; right: 32px;
+  width: 160px;
+  transform: rotate(8deg);
+}
+
+/* =========================================================
+   TEATIME
+   ========================================================= */
+.teatime {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.teatime__photo { margin: 0; }
+.teatime__photo { position: relative; }
+
+.teatime__frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 220px 220px var(--radius-m) var(--radius-m);
+  overflow: hidden;
+  background: var(--sky);
+}
+.teatime__img { width: 100%; height: 100%; object-fit: cover; }
+.teatime__frame .photo-teapot--tl { top: 90px; left: 40px; }
+.teatime__badge {
+  position: absolute;
+  left: -20px;
+  bottom: 40px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background: var(--orange);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 800;
+  font-size: 1.15rem;
+  line-height: 1.1;
+  transform: rotate(-10deg);
+}
+.teatime__text { display: flex; flex-direction: column; gap: 12px; }
+.teatime__text h2 { margin-bottom: 24px; }
+
+.steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 24px; }
+.steps li { display: flex; gap: 20px; align-items: flex-start; }
+.steps__num {
+  flex: none;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 800;
+  font-size: 1.6rem;
+  background: var(--orange);
+  color: var(--ink);
+}
+.steps li:nth-child(2) .steps__num { background: var(--lime); }
+.steps li:nth-child(3) .steps__num { background: var(--sky); }
+.steps h3 { margin-bottom: 4px; }
+
+
+/* =========================================================
+   FRUIT FANS — fotogalerij
+   ========================================================= */
+.fans__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: center;
+}
+.fans__item {
+  position: relative;
+  margin: 0;
+  height: 440px;
+  border-radius: var(--radius-m);
+  overflow: hidden;
+}
+.fans__item--tall { height: 540px; }
+.fans__item:nth-child(2) { border-radius: 200px 200px var(--radius-m) var(--radius-m); }
+.fans__img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.fans__item:hover .fans__img { transform: scale(1.04); }
+.fans__tag {
+  position: absolute;
+  z-index: 2;
+  left: 16px;
+  bottom: 16px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: .9rem;
+  color: var(--ink);
+}
+.fans__tag--berry  { background: var(--cream); }
+.fans__tag--lime   { background: var(--lime); }
+.fans__tag--orange { background: var(--orange); }
+
+/* =========================================================
+   LAUNCH / CTA
+   ========================================================= */
+.launch__card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 72px 64px;
+  border-radius: var(--radius-l);
+  background: var(--berry);
+  color: #fff;
+  overflow: hidden;
+}
+.launch__card h2 { color: var(--cream); }
+.launch__card h2 em { color: var(--lime); }
+.launch__text { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 20px; }
+.launch__text p { max-width: 38ch; font-size: 1.1rem; }
+.launch__teapot {
+  position: absolute;
+  width: 420px;
+  left: -60px;
+  bottom: -110px;
+  opacity: .18;
+  transform: rotate(-10deg);
+}
+.launch__form {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 32px;
+  border-radius: var(--radius-m);
+  background: rgba(255,255,255,.12);
+}
+.launch__form label { font-weight: 800; font-size: .95rem; }
+.launch__form input {
+  min-height: 52px;
+  padding: 0 20px;
+  margin-bottom: 10px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  font: 600 1rem var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  width: 100%;
+  min-width: 0;
+}
+.launch__form input[aria-invalid="true"] { border-color: var(--lime); }
+.launch__form .btn { margin-top: 6px; }
+.launch__msg { min-height: 1.5em; font-weight: 800; }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer {
+  margin-top: 120px;
+  padding: 72px 0 32px;
+  background: var(--forest);
+  color: var(--cream);
+}
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+.footer__brand { display: flex; flex-direction: column; gap: 10px; }
+.footer__brand p { font-style: italic; font-weight: 700; color: var(--sky); }
+.footer__links { display: flex; flex-direction: column; gap: 10px; }
+.footer__links a, .footer__social a { color: var(--cream); text-decoration: none; font-weight: 700; }
+.footer__links a:hover { color: var(--lime); }
+.footer__social { display: flex; gap: 12px; }
+.footer__social a {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--cream);
+  transition: background-color .2s, color .2s;
+}
+.footer__social a:hover { background: var(--cream); color: var(--forest); }
+.footer__note { margin-top: 56px; font-size: .85rem; opacity: .8; }
+
+/* =========================================================
+   REVEAL ANIMATIE (script.js voegt .is-visible toe)
+   ========================================================= */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+.flavour.reveal.is-visible:nth-child(2) { transition-delay: .08s; }
+.flavour.reveal.is-visible:nth-child(3) { transition-delay: .16s; }
+.flavour.reveal.is-visible:nth-child(4) { transition-delay: .24s; }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 980px) {
+  .hero__card, .launch__card, .teatime { grid-template-columns: minmax(0, 1fr); }
+  .hero__card { padding: 48px 32px; }
+  .hero__visual { height: 420px; }
+  .flavour-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fans__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fans__item:nth-child(3) { grid-column: span 2; }
+  .launch__card { padding: 48px 24px; }
+  .slogan { grid-template-columns: minmax(0, 1fr); }
+  .slogan__half { min-height: 480px; }
+  .launch__form { padding: 24px 20px; }
+}
+
+@media (max-width: 720px) {
+  body { font-size: 17px; }
+  section { margin-top: 80px; }
+  .nav__toggle { display: block; }
+  .nav__menu {
+    position: absolute;
+    top: 84px; left: 16px; right: 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 16px;
+    border-radius: var(--radius-m);
+    background: var(--cream);
+    box-shadow: 0 20px 40px -20px rgba(0,0,0,.3);
+    display: none;
+  }
+  .nav__menu.is-open { display: flex; }
+  .nav__menu a:not(.btn) { padding: 12px 8px; }
+  .hero__visual { height: 380px; }
+  .pack { width: 200px; height: 270px; }
+  .pack__brand { font-size: 1.5rem; }
+  .pack--back { left: 0; }
+  .pack--front { left: auto; right: 0; }
+  .dot--a { width: 220px; height: 220px; }
+  .flavour-grid { gap: 16px; }
+  .flavour__arch, .flavour:nth-child(even) .flavour__arch { height: 260px; }
+  .mini-pack { width: 110px; height: 150px; }
+  .mini-pack img { width: 48px; margin-top: 22px; }
+  .mini-pack__band { font-size: .72rem; }
+  .bento { grid-template-columns: 1fr; }
+  .tile--big, .tile--wide { grid-column: auto; grid-row: auto; }
+  .tile__teapot { width: 110px; }
+  .marquee span { font-size: 1.5rem; }
+  .slogan__line { margin: 16px; padding: 14px 18px; font-size: 1.9rem; }
+  .fans__grid { grid-template-columns: minmax(0, 1fr); }
+  .fans__item:nth-child(3) { grid-column: auto; }
+  .fans__item, .fans__item--tall { height: 420px; }
+  .teatime__badge { left: -4px; width: 120px; height: 120px; font-size: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee__track { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  * { transition: none !important; }
+}

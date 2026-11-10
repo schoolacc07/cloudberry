@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cloudberry — A cup for you, a cup for the little ones</title>
+  <meta name="description" content="Cloudberry: caffeine free rooibos fruit tea for the whole family.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Nunito:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a href="#top" class="wordmark wordmark--nav" aria-label="Cloudberry home">
+        <span class="wm-cloud"><span class="c-forest">C</span><span class="c-berry">l</span><span class="c-orange">o</span><span class="c-forest">u</span><span class="c-berry">d</span></span><span class="wm-berry"><span class="c-orange">B</span><span class="c-forest">e</span><span class="c-berry">r</span><span class="c-orange">r</span><span class="c-forest">y</span></span>
+      </a>
+
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+
+      <nav id="nav-menu" class="nav__menu" aria-label="Main">
+        <a href="#flavours">Flavours</a>
+        <a href="#why">Why Cloudberry</a>
+        <a href="#teatime">Teatime</a>
+        <a href="#launch" class="btn btn--forest btn--small">Be the first</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero wrap">
+      <div class="hero__card" data-theme="forest">
+        <div class="hero__text">
+          <p class="pill">New · caffeine free rooibos</p>
+          <h1 class="hero__title">A cup for you,<br><em>a cup for the little ones.</em></h1>
+          <p class="hero__lead">Fruity rooibos tea that the whole table can share. One pot, two cups, no caffeine.</p>
+          <div class="hero__ctas">
+            <a href="#flavours" class="btn btn--cream">Discover the flavours</a>
+            <a href="#launch" class="btn btn--ghost">Join the launch</a>
+          </div>
+        </div>
+
+        <div class="hero__visual" aria-hidden="true">
+          <span class="dot dot--lime dot--a"></span>
+          <span class="dot dot--orange dot--b"></span>
+          <span class="dot dot--sky dot--c"></span>
+          <span class="dot dot--berry dot--d"></span>
+
+          <!-- packaging mockups, built in CSS -->
+          <div class="pack pack--berry pack--back">
+            <div class="pack__top">
+              <img src="../assets/teapot_cream.png" alt="" class="pack__teapot">
+              <span class="pack__brand">CloudBerry</span>
+              <span class="pack__slogan">A cup for you, a cup for the little ones.</span>
+            </div>
+            <div class="pack__band">
+              <span class="pack__name">Raspberry &amp; grape</span>
+              <span class="pack__info">caffeine free tea · 20 bags</span>
+            </div>
+          </div>
+
+          <div class="pack pack--orange pack--front" id="hero-pack">
+            <div class="pack__top">
+              <img src="../assets/teapot_cream.png" alt="" class="pack__teapot">
+              <span class="pack__brand">CloudBerry</span>
+              <span class="pack__slogan">A cup for you, a cup for the little ones.</span>
+            </div>
+            <div class="pack__band">
+              <span class="pack__name">Starfruit &amp; mandarin</span>
+              <span class="pack__info">caffeine free tea · 20 bags</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>caffeine free</span><img src="../assets/teapot_cream.png" alt=""><span>rooibos base</span><img src="../assets/teapot_cream.png" alt=""><span>fruit duos</span><img src="../assets/teapot_cream.png" alt=""><span>for big &amp; little cups</span><img src="../assets/teapot_cream.png" alt="">
+        <span>caffeine free</span><img src="../assets/teapot_cream.png" alt=""><span>rooibos base</span><img src="../assets/teapot_cream.png" alt=""><span>fruit duos</span><img src="../assets/teapot_cream.png" alt=""><span>for big &amp; little cups</span><img src="../assets/teapot_cream.png" alt="">
+      </div>
+    </div>
+
+    <!-- slogan-blok met 2 foto's: voorlopig weggelaten in versie D -->
+
+
+    <!-- ============ FLAVOURS ============ -->
+    <section id="flavours" class="flavours flavours--d wrap">
+      <div class="section-head">
+        <p class="eyebrow">The range</p>
+        <h2>Pick your <em>pot</em>.</h2>
+        <p>Every Cloudberry tea starts with rooibos and gets a fruit duo on top. Tap a flavour to see its box.</p>
+      </div>
+
+      <div class="flavour-grid">
+        <!-- data-* attributes drive the hero box swap in script.js -->
+        <button class="flavour reveal"
+          data-name="Raspberry &amp; grape" data-color="berry"
+          aria-label="Show Raspberry and grape">
+          <span class="flavour__arch flavour__arch--berry">
+            <img src="../assets/fruit/framboos.png" alt="" class="fruit" style="--l:-12%;--t:62%;--w:30%;--r:-18deg;--d:0s;--z:3">
+            <img src="../assets/fruit/framboos.png" alt="" class="fruit" style="--l:4%;--t:72%;--w:26%;--r:12deg;--d:0.4s;--z:3">
+            <img src="../assets/fruit/framboos.png" alt="" class="fruit" style="--l:-10%;--t:78%;--w:26%;--r:-4deg;--d:0.8s;--z:3">
+            <span class="mini-pack mini-pack--berry"><img src="../assets/teapot_cream.png" alt=""><span class="mini-pack__band">Raspberry &amp; grape</span></span>
+          </span>
+          <span class="flavour__name">Raspberry &amp; grape</span>
+          <span class="flavour__tag">Berry-heavy</span>
+        </button>
+
+        <button class="flavour reveal"
+          data-name="Starfruit &amp; mandarin" data-color="orange"
+          aria-label="Show Starfruit and mandarin">
+          <span class="flavour__arch flavour__arch--orange">
+            <img src="../assets/fruit/mandarijn.png" alt="" class="fruit" style="--l:-16%;--t:-9%;--w:50%;--r:-14deg;--d:0s;--z:1">
+            <img src="../assets/fruit/mandarijn.png" alt="" class="fruit" style="--l:84%;--t:74%;--w:38%;--r:22deg;--d:0.6s;--z:3">
+            <span class="mini-pack mini-pack--orange"><img src="../assets/teapot_cream.png" alt=""><span class="mini-pack__band">Starfruit &amp; mandarin</span></span>
+          </span>
+          <span class="flavour__name">Starfruit &amp; mandarin</span>
+          <span class="flavour__tag">Exotic</span>
+        </button>
+
+        <button class="flavour reveal"
+          data-name="[Fruit &amp; fruit]" data-color="lime"
+          aria-label="Show kid favourite flavour">
+          <span class="flavour__arch flavour__arch--lime">
+            <img src="../assets/fruit/druif.png" alt="" class="fruit" style="--l:72%;--t:70%;--w:32%;--r:-10deg;--d:0s;--z:3">
+            <img src="../assets/fruit/druif.png" alt="" class="fruit" style="--l:84%;--t:78%;--w:30%;--r:18deg;--d:0.5s;--z:3">
+            <img src="../assets/fruit/druif.png" alt="" class="fruit" style="--l:68%;--t:83%;--w:27%;--r:4deg;--d:0.9s;--z:3">
+            <span class="mini-pack mini-pack--forest"><img src="../assets/teapot_lime.png" alt=""><span class="mini-pack__band">[Fruit &amp; fruit]</span></span>
+          </span>
+          <span class="flavour__name">[Fruit &amp; fruit]</span>
+          <span class="flavour__tag">Kid favourite</span>
+        </button>
+
+        <button class="flavour reveal"
+          data-name="[Fruit &amp; fruit]" data-color="sky"
+          aria-label="Show flavour for young parents">
+          <span class="flavour__arch flavour__arch--sky">
+            <img src="../assets/fruit/blauwe-bes.png" alt="" class="fruit" style="--l:78%;--t:56%;--w:34%;--r:8deg;--d:0s;--z:3">
+            <img src="../assets/fruit/blauwe-bes.png" alt="" class="fruit" style="--l:70%;--t:74%;--w:42%;--r:-12deg;--d:0.5s;--z:3">
+            <span class="mini-pack mini-pack--sky"><img src="../assets/teapot_forest.png" alt=""><span class="mini-pack__band">[Fruit &amp; fruit]</span></span>
+          </span>
+          <span class="flavour__name">[Fruit &amp; fruit]</span>
+          <span class="flavour__tag">For young parents</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============ TEATIME ============ -->
+    <section id="teatime" class="teatime wrap">
+      <figure class="teatime__photo reveal">
+        <div class="teatime__frame">
+          <img src="../assets/kid-pinky-tea.jpg" alt="A curly haired girl sipping from a small white cup with both pinkies up" class="teatime__img">
+          <img src="../assets/teapot_lime.png" alt="" class="photo-teapot photo-teapot--tl">
+        </div>
+        <figcaption class="teatime__badge">A cup for<br>the little ones</figcaption>
+      </figure>
+
+      <div class="teatime__text">
+        <p class="eyebrow">Teatime, together</p>
+        <h2>Three steps to<br><em>two cups</em>.</h2>
+        <ol class="steps">
+          <li><span class="steps__num">1</span><div><h3>Brew one pot</h3><p>One Cloudberry bag, hot water, a few minutes.</p></div></li>
+          <li><span class="steps__num">2</span><div><h3>Pour two cups</h3><p>A big one for you, a little one for them.</p></div></li>
+          <li><span class="steps__num">3</span><div><h3>Let it cool</h3><p>Wait until the little cup is safe to sip. Then cheers.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ WHY ============ -->
+    <section id="why" class="why wrap">
+      <div class="section-head section-head--left">
+        <p class="eyebrow">Why Cloudberry</p>
+        <h2>Tea that doesn't<br>say <em>“not for you”</em>.</h2>
+      </div>
+
+      <div class="bento">
+        <article class="tile tile--forest tile--big reveal">
+          <span class="tile__big">0</span>
+          <h3>Caffeine. Zero.</h3>
+          <p>So the little ones can join in, also in the afternoon and at bedtime.</p>
+          <img src="../assets/teapot_lime.png" alt="" class="tile__teapot">
+        </article>
+        <article class="tile tile--lime reveal">
+          <h3>Rooibos base</h3>
+          <p>Every flavour is built on rooibos, naturally mild and smooth.</p>
+        </article>
+        <article class="tile tile--sky reveal">
+          <h3>Fruit duos</h3>
+          <p>Two fruits per tea, picked in themes: berry, exotic, kid favourites.</p>
+        </article>
+        <article class="tile tile--orange tile--wide reveal">
+          <h3>One pot, the whole table</h3>
+          <p>Brew once, pour a big cup and a little cup. Teatime becomes a family moment.</p>
+        </article>
+      </div>
+    </section>
+
+
+    <!-- ============ FRUITBAND (versie C) ============ -->
+    <section class="fruitband fruitband--d" aria-labelledby="band-title">
+      <p id="band-title" class="eyebrow fruitband__label wrap">What fruits are mixed in our caffeine free tea</p>
+      <ul class="fruitband__track">
+          <li class="fruitband__item"><img src="../assets/fruit-shades/aardbei.jpg" alt=""><span>Strawberry</span></li>
+          <li class="fruitband__item"><img src="../assets/fruit-shades/framboos.jpg" alt=""><span>Raspberry</span></li>
+          <li class="fruitband__item"><img src="../assets/fruit-shades/mandarijn.jpg" alt=""><span>Mandarin</span></li>
+          <li class="fruitband__item"><img src="../assets/fruit-shades/blauwe-bes.jpg" alt=""><span>Blueberry</span></li>
+          <li class="fruitband__item"><img src="../assets/fruit-shades/groene-druif.jpg" alt=""><span>Green grape</span></li>
+          <li class="fruitband__item"><img src="../assets/fruit-shades/kers.jpg" alt=""><span>Cherry</span></li>
+          <li class="fruitband__item"><img src="../assets/fruit-shades/sinaasappel.jpg" alt=""><span>Orange</span></li>
+          <li class="fruitband__item"><img src="../assets/fruit-shades/paarse-bes.jpg" alt=""><span>Grape</span></li>
+          <li class="fruitband__item"><img src="../assets/fruit-shades/limoen.jpg" alt=""><span>Lime</span></li>
+          <li class="fruitband__item" aria-hidden="true"><img src="../assets/fruit-shades/aardbei.jpg" alt=""><span>Strawberry</span></li>
+          <li class="fruitband__item" aria-hidden="true"><img src="../assets/fruit-shades/framboos.jpg" alt=""><span>Raspberry</span></li>
+          <li class="fruitband__item" aria-hidden="true"><img src="../assets/fruit-shades/mandarijn.jpg" alt=""><span>Mandarin</span></li>
+          <li class="fruitband__item" aria-hidden="true"><img src="../assets/fruit-shades/blauwe-bes.jpg" alt=""><span>Blueberry</span></li>
+          <li class="fruitband__item" aria-hidden="true"><img src="../assets/fruit-shades/groene-druif.jpg" alt=""><span>Green grape</span></li>
+          <li class="fruitband__item" aria-hidden="true"><img src="../assets/fruit-shades/kers.jpg" alt=""><span>Cherry</span></li>
+          <li class="fruitband__item" aria-hidden="true"><img src="../assets/fruit-shades/sinaasappel.jpg" alt=""><span>Orange</span></li>
+          <li class="fruitband__item" aria-hidden="true"><img src="../assets/fruit-shades/paarse-bes.jpg" alt=""><span>Grape</span></li>
+          <li class="fruitband__item" aria-hidden="true"><img src="../assets/fruit-shades/limoen.jpg" alt=""><span>Lime</span></li>
+      </ul>
+    </section>
+
+    <!-- ============ FRUIT FANS (versie C: kind + fruit als duo) ============ -->
+    <section class="fans wrap" aria-labelledby="fans-title">
+      <div class="section-head">
+        <p class="eyebrow">Little fruit fans</p>
+        <h2 id="fans-title">Real fruit,<br><em>real fans</em>.</h2>
+      </div>
+      <div class="duos">
+        <article class="duo reveal">
+          <figure class="duo__photo"><img src="../assets/kid-raspberry-fingers.jpg" alt="A boy holding up his hand with a raspberry on every fingertip"></figure>
+          <figure class="duo__fruit"><img src="../assets/fruit-shades/framboos.jpg" alt=""><figcaption>Raspberry</figcaption></figure>
+        </article>
+        <article class="duo reveal">
+          <figure class="duo__photo"><img src="../assets/kid-strawberry-boy.jpg" alt="A toddler in a fluffy blue cardigan biting a strawberry"></figure>
+          <figure class="duo__fruit"><img src="../assets/fruit-shades/aardbei.jpg" alt=""><figcaption>Strawberry</figcaption></figure>
+        </article>
+        <article class="duo reveal">
+          <figure class="duo__photo"><img src="../assets/kid-starfruit-laugh.jpg" alt="A laughing girl with pigtails holding a starfruit"></figure>
+          <figure class="duo__fruit"><img src="../assets/fruit-shades/mandarijn.jpg" alt=""><figcaption>Starfruit &amp; mandarin</figcaption></figure>
+        </article>
+        <article class="duo reveal">
+          <figure class="duo__photo"><img src="../assets/kid-pinky-tea.jpg" alt="A curly haired girl sipping from a small white cup with both pinkies up"></figure>
+          <figure class="duo__fruit"><img src="../assets/fruit-shades/kers.jpg" alt=""><figcaption>Cherry</figcaption></figure>
+        </article>
+        <article class="duo reveal">
+          <figure class="duo__photo"><img src="../assets/family-croissant.jpg" alt="A mother holding a newborn and a striped mug while her partner feeds her a croissant"></figure>
+          <figure class="duo__fruit"><img src="../assets/fruit-shades/sinaasappel.jpg" alt=""><figcaption>For the big cups</figcaption></figure>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ LAUNCH / CTA ============ -->
+    <section id="launch" class="launch wrap">
+      <div class="launch__card">
+        <img src="../assets/teapot_cream.png" alt="" class="launch__teapot">
+        <div class="launch__text">
+          <h2>Be the first<br>to <em>pour</em>.</h2>
+          <p>Cloudberry is coming soon. Leave your email and we'll let you know when the first boxes land.</p>
+        </div>
+
+        <form class="launch__form" novalidate>
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" type="text" autocomplete="given-name" placeholder="Samira">
+
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+
+          <button type="submit" class="btn btn--lime">Keep me posted</button>
+          <p class="launch__msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div class="footer__brand">
+        <a href="#top" class="wordmark wordmark--footer" aria-label="Cloudberry home">
+          <span class="wm-cloud"><span class="c-orange">C</span><span class="c-sky">l</span><span class="c-lime">o</span><span class="c-cream">u</span><span class="c-orange">d</span></span><span class="wm-berry"><span class="c-sky">B</span><span class="c-lime">e</span><span class="c-cream">r</span><span class="c-orange">r</span><span class="c-sky">y</span></span>
+        </a>
+        <p>A cup for you, a cup for the little ones.</p>
+      </div>
+
+      <nav class="footer__links" aria-label="Footer">
+        <a href="#flavours">Flavours</a>
+        <a href="#why">Why Cloudberry</a>
+        <a href="#teatime">Teatime</a>
+        <a href="#launch">Launch</a>
+      </nav>
+
+      <div class="footer__social">
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        </a>
+        <a href="#" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.6 2.4 4.4 5 4.6"/></svg>
+        </a>
+      </div>
+    </div>
+    <p class="footer__note wrap">Cloudberry is a fictional brand — school project Creative Automation.</p>
+  </footer>
+
+
+  <!-- alleen om de versies te vergelijken, mag weg bij de definitieve versie -->
+  <nav class="version-switch" aria-label="Versies">Versie <a href="versie-a.html">A</a><a href="versie-b.html">B</a><a href="versie-c.html">C</a><a href="versie-d.html" aria-current="page">D</a></nav>
+  <script src="script.js"></script>
+</body>
+</html>
