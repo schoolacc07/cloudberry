@@ -74,7 +74,8 @@ if ('IntersectionObserver' in window) {
 }
 
 // ---------- 4. Inschrijfformulier (alleen front-end check) ----------
-const form = document.querySelector('.launch__form');
+const form = document.querySelector('form.launch__form');
+if (form) {
 const emailInput = form.querySelector('#f-email');
 const nameInput = form.querySelector('#f-name');
 const message = form.querySelector('.launch__msg');
@@ -99,3 +100,4 @@ form.addEventListener('submit', (event) => {
     : 'Thanks! We’ll save you a cup.';
   form.reset();
 });
+}

@@ -9,6 +9,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Nunito:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- MailerLite Universal -->
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2769293');
+  </script>
+  <!-- End MailerLite Universal -->
 </head>
 <body>
 
@@ -269,16 +278,11 @@
           <p>Cloudberry is coming soon. Leave your email and we'll let you know when the first boxes land.</p>
         </div>
 
-        <form class="launch__form" novalidate>
-          <label for="f-name">Your name</label>
-          <input id="f-name" name="name" type="text" autocomplete="given-name" placeholder="Samira">
-
-          <label for="f-email">Email</label>
-          <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
-
-          <button type="submit" class="btn btn--lime">Keep me posted</button>
-          <p class="launch__msg" role="status" aria-live="polite"></p>
-        </form>
+        <!-- MailerLite-form "be the first to pour" (naam, e-mail, opt-in, double opt-in) -->
+        <div class="launch__form launch__form--ml">
+          <div class="ml-embedded" data-form="OKIpw5"></div>
+          <p class="launch__privacy">We only use your name and email to send the newsletter. No spam, no sharing. Unsubscribe in one click.</p>
+        </div>
       </div>
     </section>
   </main>

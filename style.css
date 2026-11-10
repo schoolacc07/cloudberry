@@ -948,3 +948,8 @@ main { overflow-x: clip; }
 @media (max-width: 720px) {
   .nav__menu { background: var(--forest); }
 }
+
+/* UPDATE 10-11 – MailerLite-form in de launch-sectie */
+.launch__form--ml { padding: 12px; background: rgba(255,255,255,.12); }
+.launch__form--ml .ml-embedded { width: 100%; }
+.launch__privacy { margin: 6px 12px 4px; font-size: .82rem; opacity: .85; }
